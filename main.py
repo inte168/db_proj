@@ -35,11 +35,16 @@ while True:
         name, st_num, dep, response, team = inform_str.split(" ")
         cursor.execute("INSERT INTO student (name, st_num, dep, res, team) VALUES(" +name + ',' + st_num + ',' + dep + ',' + response + ',' +team+ ')')
         
+        
         print("입력되었습니다.")
         
      if choice == '2':
         colleague = input("검색할 단과대학 명을 입력하세요.")
         cursor.execute("SELECT S.name, S.st_num FROM depNcoll D JOIN student S ON S.dep = D.dep WHERE D.colleague = " + colleague)
+        
+     if choice == '3':
+        team = input("검색할 팀 명을 입력하세요.")
+        cursor.execute("SELECT S.name, S.st_num FROM student S WHERE team =" + team)
         
 
        
