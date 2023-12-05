@@ -34,6 +34,7 @@ while True:
         inform_str = input("각 정보를 공백 기준으로 구분하여 입력하세요")
         name, st_num, dep, response, team = inform_str.split(" ")
         cursor.execute("INSERT INTO student (name, st_num, dep, res, team) VALUES(" +name + ',' + st_num + ',' + dep + ',' + response + ',' +team+ ')')
+        db.commit()
         print("입력되었습니다.")
         
      if choice == '2':
@@ -52,17 +53,8 @@ while True:
         #결과 출력
         results = cursor.fetchall()
         for row in results:
-            print(row)
-        
+            print(row)      
 
-       
-
-
-cursor.execute(sql)
-idx = cursor.fetchall() ##ㅇㅇㅇ
-
-
-db.commit()
 
 #종료
 cursor.close()
