@@ -26,6 +26,17 @@ while True:
     
     if choice == '4':
         break
+        
+    if choice == '1':
+        print("학생 정보를 입력하기 위한 테이블은 다음 형식을 따릅니다.")
+        cursor.execute("SHOW COLUMNS FROM student")
+        
+        inform_str = input("각 정보를 공백 기준으로 구분하여 입력하세요")
+        name, st_num, dep, response, team = inform_str.split(" ")
+        cursor.execute("INSERT INTO student (name, st_num, dep, res, team) VALUES(" +name + ',' + st_num + ',' + dep + ',' + response + ',' +team+ ')')
+        
+        print("입력되었습니다.")
+       
 
 
 cursor.execute(sql)
